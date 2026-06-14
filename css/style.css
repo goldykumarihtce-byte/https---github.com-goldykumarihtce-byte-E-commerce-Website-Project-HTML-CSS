@@ -439,30 +439,46 @@ body{
 }
 
 .section-title{
+
     text-align: center;
 
     font-size: var(--fs-48);
+
     font-weight: var(--fw-700);
+
+    font-family: var(--Anton-font);
 
     margin-bottom: 55px;
 
-    font-family: var(--Anton-font);
+    text-transform: uppercase;
 }
+
+
+/* Product Grid */
 
 .product-grid{
 
     display: grid;
 
-    grid-template-columns: repeat(4,295px);
+    grid-template-columns: repeat(4,1fr);
 
     gap: var(--space-24);
 
-    justify-content: space-around;
+    justify-content: center;
 }
 
+
+/* Product Card */
+
 .product-card{
+
     width: 100%;
+
+    cursor: pointer;
 }
+
+
+/* Product Image */
 
 .product-img{
 
@@ -470,9 +486,7 @@ body{
 
     height: 300px;
 
-    background: #F0EEED;
-/* ya */
-    /* background: var(--clr-bg-light); */
+    background: var(--clr-bg-light);
 
     border-radius: var(--radius-md);
 
@@ -482,14 +496,16 @@ body{
 
     align-items: center;
 
+    overflow: hidden;
+
     transition: var(--transition);
 }
 
 .product-img:hover{
 
     transform: translateY(-5px);
-
 }
+
 
 .product-img img{
 
@@ -498,7 +514,17 @@ body{
     height: 75%;
 
     object-fit: contain;
+
+    transition: 0.3s;
 }
+
+.product-card:hover .product-img img{
+
+    transform: scale(1.05);
+}
+
+
+/* Product Name */
 
 .product-card h3{
 
@@ -507,21 +533,44 @@ body{
     font-size: var(--fs-20);
 
     font-weight: var(--fw-700);
+
+    color: var(--clr-black);
 }
+
+
+/* Rating */
 
 .rating{
 
-    margin-top: 10px;
+    display: flex;
 
-    font-size: var(--fs-14);
+    align-items: center;
+
+    gap: 4px;
+
+    margin-top: 10px;
+}
+
+.rating img{
+
+    width: 18px;
+
+    height: 18px;
+
+    object-fit: contain;
 }
 
 .rating span{
 
+    margin-left: 6px;
+
     color: var(--clr-text-light);
 
-    margin-left: 5px;
+    font-size: var(--fs-14);
 }
+
+
+/* Price */
 
 .price{
 
@@ -531,26 +580,31 @@ body{
 
     gap: 10px;
 
-    margin-top: 10px;
+    margin-top: 12px;
+
+    flex-wrap: wrap;
 }
+
 
 .current-price{
 
     font-size: var(--fs-34);
 
     font-weight: var(--fw-700);
+
+    color: var(--clr-black);
 }
+
 
 .old-price{
 
     font-size: var(--fs-24);
 
-    color: #999;
-/* ya */
-    /* color: var(--clr-text-light); */
+    color: var(--clr-text-light);
 
     text-decoration: line-through;
 }
+
 
 .discount{
 
@@ -567,12 +621,16 @@ body{
     font-weight: var(--fw-700);
 }
 
+
+/* View All Button */
+
 .view-all{
 
     text-align: center;
 
     margin-top: var(--space-40);
 }
+
 
 .view-all a{
 
@@ -591,12 +649,14 @@ body{
     transition: var(--transition);
 }
 
+
 .view-all a:hover{
 
     background: var(--clr-black);
 
-    color: #fff;
+    color: white;
 }
+
 
 
 /* ==========================
@@ -608,6 +668,13 @@ body{
     .products{
 
         padding: 50px 20px;
+    }
+
+    .section-title{
+
+        font-size: var(--fs-34);
+
+        margin-bottom: 35px;
     }
 
     .product-grid{
@@ -627,6 +694,13 @@ body{
         font-size: var(--fs-16);
     }
 
+    .rating img{
+
+        width: 14px;
+
+        height: 14px;
+    }
+
     .current-price{
 
         font-size: var(--fs-24);
@@ -637,13 +711,19 @@ body{
         font-size: var(--fs-18);
     }
 
-    .section-title{
+    .discount{
 
-        font-size: var(--fs-34);
+        font-size: 10px;
+
+        padding: 4px 8px;
     }
+
+    .view-all a{
+
+        padding: 14px 45px;
+    }
+
 }
-
-
 
 /* ==========================
    DRESS STYLE
@@ -876,11 +956,15 @@ body{
 /* Header */
 
 .testimonial-header{
+
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
 
     margin-bottom: var(--space-48);
+
 }
 
 .testimonials-title{
@@ -894,6 +978,7 @@ body{
     color: var(--clr-black);
 
 }
+
 
 /* ==========================
    CUSTOM ARROWS
@@ -1000,17 +1085,37 @@ body{
 
 }
 
-/* Rating */
+
+/* ==========================
+   RATING STARS IMAGE
+========================== */
 
 .testimonial-rating{
 
-    font-size: var(--fs-20);
+    display: flex;
+
+    align-items: center;
+
+    gap: 4px;
 
     margin-bottom: var(--space-16);
 
 }
 
-/* Customer Name */
+.testimonial-rating img{
+
+    width: 20px;
+
+    height: 20px;
+
+    object-fit: contain;
+
+}
+
+
+/* ==========================
+   CUSTOMER NAME
+========================== */
 
 .customer-name{
 
@@ -1036,7 +1141,10 @@ body{
 
 }
 
-/* Text */
+
+/* ==========================
+   TEXT
+========================== */
 
 .testimonial-text{
 
@@ -1116,6 +1224,14 @@ body{
 
     }
 
+    .testimonial-rating img{
+
+        width: 18px;
+
+        height: 18px;
+
+    }
+
 }
 
 
@@ -1128,6 +1244,14 @@ body{
     .testimonials-title{
 
         font-size: var(--fs-24);
+
+    }
+
+    .testimonial-rating img{
+
+        width: 16px;
+
+        height: 16px;
 
     }
 
