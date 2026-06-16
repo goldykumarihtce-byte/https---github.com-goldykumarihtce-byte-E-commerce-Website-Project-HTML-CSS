@@ -70,9 +70,48 @@
     --shadow-sm: 0 2px 8px rgba(0,0,0,.08);
 
     /* Container */
-    --container-width: 1240px;
+    --container-width: 80%;
 
     /* Transition */
     --transition: .3s ease;
+
+    *{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+body{
+
+    background:rgb(249,249,249);
+
+    color:var(--clr-text);
+
+    font-family:var(--Plus-font);
+
+}
+
+
+/* ==========================
+   COMMON CONTAINER
+========================== */
+
+.container{
+
+    width:100%;
+
+    max-width:var(--container-width);
+
+    margin:0 auto;
+
+    padding-left:24px;
+
+    padding-right:24px;
+
+}
 
 }
