@@ -378,7 +378,7 @@ body{
 
         text-align: center;
 
-        padding: 50px 0;
+        padding: 30px 20;
 
         min-height: auto;
     }
@@ -390,7 +390,7 @@ body{
 
     .hero-content h1{
 
-        font-size: 42px;
+        font-size: 64px;
     }
 
     .hero-content p{
@@ -1320,159 +1320,286 @@ body{
     padding: var(--space-80) 0;
 }
 
-/* container already variable based */
 .container{
-    max-width: var(--container-width);
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 var(--space-24);
+    width: 90%;
+    max-width: 1240px;
+    margin: auto;
 }
 
 /* HEADER */
+
 .testimonial-header{
+
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
-    margin-bottom: var(--space-40);
+
+    margin-bottom: var(--space-48);
+
 }
 
 .testimonial-title{
+
     font-size: var(--fs-48);
+
     font-weight: var(--fw-900);
-    text-transform: uppercase;
-    line-height: 1;
+
     font-family: var(--Anton-font);
+
+    text-transform: uppercase;
+
+    line-height: 1;
+
 }
 
 .testimonial-nav{
+
     display: flex;
+
     align-items: center;
+
     gap: var(--space-16);
+
 }
 
 .testimonial-nav img{
+
     width: 24px;
+
     height: 24px;
+
     cursor: pointer;
+
 }
 
+
 /* ===========================
-   SLIDER (IMPORTANT FIX)
+   WRAPPER
 =========================== */
 
 .testimonial-wrapper{
+
     overflow: hidden;
+
 }
 
+
+/* ===========================
+   SLIDER
+=========================== */
+
 .testimonial-slider{
+
     display: flex;
+
     gap: var(--space-24);
 
     overflow-x: auto;
+
     scroll-behavior: smooth;
+
     scroll-snap-type: x mandatory;
 
     scrollbar-width: none;
+
     -ms-overflow-style: none;
+
+    padding: 0 60px;      /* 👈 dono side thoda card dikhe */
+
 }
 
 .testimonial-slider::-webkit-scrollbar{
+
     display: none;
+
 }
 
+
 /* ===========================
-   CARD (3 VISIBLE FIX)
+   CARD
 =========================== */
 
 .testimonial-card{
-    flex: 0 0 calc((100% - (2 * var(--space-24))) / 3);
+
+    flex: 0 0 calc((100% - 120px - (2 * var(--space-24))) / 3);
+
+    background: #fff;
 
     border: 1px solid var(--clr-border);
+
     border-radius: var(--radius-lg);
 
     padding: var(--space-32);
 
-    background: #fff;
+    scroll-snap-align: center;
 
-    scroll-snap-align: start;
+    transition: var(--transition);
+
 }
+
+.testimonial-card:hover{
+
+    transform: translateY(-5px);
+
+    box-shadow: var(--shadow-sm);
+
+}
+
 
 /* ===========================
    STARS
 =========================== */
 
 .stars{
+
     display: flex;
+
     gap: 4px;
+
     margin-bottom: var(--space-16);
+
 }
 
 .stars img{
+
     width: 20px;
+
     height: 20px;
+
     object-fit: contain;
+
 }
+
 
 /* ===========================
    NAME
 =========================== */
 
-.customer-name{
+.testimonial-card h3{
+
     display: flex;
+
     align-items: center;
+
     gap: var(--space-8);
 
     font-size: var(--fs-20);
+
     font-weight: var(--fw-700);
 
     margin-bottom: var(--space-16);
+
 }
 
-.customer-name img{
+.testimonial-card h3 img{
+
     width: 20px;
+
     height: 20px;
+
 }
+
 
 /* ===========================
    TEXT
 =========================== */
 
-.testimonial-text{
+.testimonial-card p{
+
     font-size: var(--fs-16);
-    line-height: 1.7;
+
     color: var(--clr-text-light);
+
+    line-height: 1.7;
+
 }
+
 
 /* ===========================
    TABLET
 =========================== */
 
-@media (max-width: 992px){
-
-    .testimonial-card{
-        flex: 0 0 calc((100% - var(--space-24)) / 2);
-    }
+@media(max-width:992px){
 
     .testimonial-title{
+
         font-size: var(--fs-34);
+
     }
+
+    .testimonial-slider{
+
+        padding: 0 40px;
+
+    }
+
+    .testimonial-card{
+
+        flex: 0 0 calc((100% - 80px - var(--space-24))/2);
+
+    }
+
 }
+
 
 /* ===========================
    MOBILE
 =========================== */
 
-@media (max-width: 768px){
+@media(max-width:768px){
 
-    .testimonial-card{
-        flex: 0 0 85%;
+    .testimonials{
+
+        padding: 60px 0;
+
     }
 
     .testimonial-header{
+
         flex-direction: column;
+
         align-items: flex-start;
+
         gap: var(--space-24);
+
     }
+
+    .testimonial-title{
+
+        font-size: var(--fs-24);
+
+    }
+
+    .testimonial-slider{
+
+        padding: 0 20px;
+
+        gap: var(--space-16);
+
+    }
+
+    .testimonial-card{
+
+        flex: 0 0 85%;
+
+        padding: var(--space-24);
+
+    }
+
+    .testimonial-card h3{
+
+        font-size: var(--fs-18);
+
+    }
+
+    .testimonial-card p{
+
+        font-size: var(--fs-14);
+
+    }
+
 }
 
 
@@ -1491,15 +1618,19 @@ body{
     position: relative;
 
     z-index: 2;
+
 }
 
 .newsletter .container{
 
-    width: 90%;
+    max-width: var(--container-width);
 
-    max-width: 1240px;
+    width: 100%;
 
     margin: auto;
+
+    padding: 0 var(--space-24);
+
 }
 
 .newsletter-container{
@@ -1512,7 +1643,7 @@ body{
 
     border-radius: var(--radius-lg);
 
-    padding: 60px 80px;
+    padding: 60px;
 
     display: flex;
 
@@ -1521,10 +1652,8 @@ body{
     align-items: center;
 
     gap: var(--space-64);
+
 }
-
-
-/* TITLE */
 
 .newsletter-title{
 
@@ -1537,10 +1666,8 @@ body{
     font-weight: var(--fw-900);
 
     line-height: 1.1;
+
 }
-
-
-/* FORM */
 
 .newsletter-form{
 
@@ -1551,10 +1678,8 @@ body{
     flex-direction: column;
 
     gap: var(--space-16);
+
 }
-
-
-/* INPUT */
 
 .input-box{
 
@@ -1569,6 +1694,7 @@ body{
     align-items: center;
 
     gap: 12px;
+
 }
 
 .input-box img{
@@ -1576,6 +1702,7 @@ body{
     width: 22px;
 
     height: 22px;
+
 }
 
 .input-box input{
@@ -1591,10 +1718,10 @@ body{
     font-size: var(--fs-16);
 
     color: var(--clr-text);
+
+    font-family: var(--plus-font);
+
 }
-
-
-/* BUTTON */
 
 .newsletter-btn{
 
@@ -1615,6 +1742,7 @@ body{
     cursor: pointer;
 
     transition: var(--transition);
+
 }
 
 .newsletter-btn:hover{
@@ -1622,6 +1750,7 @@ body{
     transform: translateY(-2px);
 
     opacity: .9;
+
 }
 
 
@@ -1637,32 +1766,32 @@ body{
     background: var(--clr-bg-light);
 
     padding: 150px 0 40px;
+
 }
-
-
-/* SAME WIDTH AS TESTIMONIAL */
 
 .footer .container{
 
-    width: 90%;
+    max-width: var(--container-width);
 
-    max-width: 1240px;
+    width: 100%;
 
     margin: auto;
+
+    padding: 0 var(--space-24);
+
 }
 
-
 .footer-container{
+
+    width: 100%;
 
     display: grid;
 
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
 
     gap: var(--space-48);
+
 }
-
-
-/* BRAND */
 
 .footer-brand h2{
 
@@ -1673,6 +1802,7 @@ body{
     font-weight: var(--fw-900);
 
     margin-bottom: var(--space-24);
+
 }
 
 .footer-brand p{
@@ -1682,16 +1812,15 @@ body{
     line-height: 1.7;
 
     margin-bottom: var(--space-24);
+
 }
-
-
-/* SOCIAL */
 
 .social-icons{
 
     display: flex;
 
     gap: 12px;
+
 }
 
 .social-icons img{
@@ -1701,27 +1830,27 @@ body{
     height: 32px;
 
     cursor: pointer;
+
 }
-
-
-/* COLUMN */
 
 .footer-column{
 
     display: flex;
 
     flex-direction: column;
+
 }
 
 .footer-column h3{
-
-    margin-bottom: var(--space-24);
 
     font-size: var(--fs-16);
 
     font-weight: var(--fw-700);
 
     letter-spacing: 2px;
+
+    margin-bottom: var(--space-24);
+
 }
 
 .footer-column a{
@@ -1732,16 +1861,15 @@ body{
 
     margin-bottom: 14px;
 
-    transition: .3s;
+    transition: var(--transition);
+
 }
 
 .footer-column a:hover{
 
     color: var(--clr-black);
+
 }
-
-
-/* LINE */
 
 .footer hr{
 
@@ -1750,10 +1878,8 @@ body{
     border: none;
 
     border-top: 1px solid var(--clr-border);
+
 }
-
-
-/* BOTTOM */
 
 .footer-bottom{
 
@@ -1762,15 +1888,16 @@ body{
     justify-content: space-between;
 
     align-items: center;
+
 }
 
 .footer-bottom p{
 
+    font-size: var(--fs-14);
+
     color: var(--clr-text-light);
 
-    font-size: var(--fs-14);
 }
-
 
 .payment-icons{
 
@@ -1779,11 +1906,13 @@ body{
     align-items: center;
 
     gap: 12px;
+
 }
 
 .payment-icons img{
 
     height: 32px;
+
 }
 
 
@@ -1801,19 +1930,25 @@ body{
         text-align: center;
 
         padding: 50px;
+
     }
 
     .newsletter-form{
 
         width: 100%;
+
+        max-width: 500px;
+
     }
 
     .footer-container{
 
         grid-template-columns: repeat(2,1fr);
+
     }
 
 }
+
 
 
 /* ==========================
@@ -1825,29 +1960,37 @@ body{
     .newsletter{
 
         margin-bottom: -60px;
+
     }
 
     .newsletter-container{
 
         padding: 35px 24px;
+
+        gap: var(--space-32);
+
     }
 
     .newsletter-title{
 
+        max-width: 100%;
+
         font-size: var(--fs-34);
 
-        max-width: 100%;
+        text-align: center;
+
     }
 
     .newsletter-form{
 
         width: 100%;
-    }
 
+    }
 
     .footer{
 
         padding: 120px 0 40px;
+
     }
 
     .footer-container{
@@ -1855,11 +1998,13 @@ body{
         grid-template-columns: 1fr;
 
         text-align: center;
+
     }
 
     .social-icons{
 
         justify-content: center;
+
     }
 
     .footer-bottom{
@@ -1869,6 +2014,7 @@ body{
         gap: var(--space-24);
 
         text-align: center;
+
     }
 
     .payment-icons{
@@ -1876,6 +2022,7 @@ body{
         justify-content: center;
 
         flex-wrap: wrap;
+
     }
 
 }
